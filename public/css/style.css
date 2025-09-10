@@ -1,0 +1,259 @@
+:root {
+  --navbar-blue: #79a7d3;
+  --brand-blue: #205081;
+  --primary-blue: #1380ef;
+  --accent-blue: #2087ee;
+  --input-bg: #f7fbff;
+  --card-bg: #fff;
+  --soft-bg: #f7fafd;
+  --shadow-card: 0 6px 28px rgba(19,128,239,0.12);
+  --section-bg: #f8fafb;
+  --purple: #7f36c7;
+  --success-green: #27ae60;
+  --border-color: #e6ebf1;
+  --danger: #c0392b;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--brand-blue);
+  min-height: 100vh;
+  background: linear-gradient(120deg, #e0eefc 0%, #bad1ee 100%) no-repeat fixed;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a { color: var(--primary-blue); text-decoration: none; }
+a:hover, a:focus { color: var(--purple); text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
+
+.container, .custom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  background: transparent !important;
+}
+
+/* --- Book Now Profile Card Badge Styles --- */
+.profile-card {
+  position: relative;
+  padding-top: 2.7em; /* Room for badge */
+}
+
+/* Stylish and responsive pill badge */
+.profile-card-available, .profile-card-unavailable {
+  position: absolute;
+  top: 1.2em;
+  right: 1.2em;
+  padding: 0.38em 1.25em;
+  font-weight: 700;
+  font-size: 1em;
+  border-radius: 24px;
+  background: var(--success-green);
+  color: #fff;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(24,170,98,0.11);
+  letter-spacing: 0.5px;
+  z-index: 10;
+  border: none;
+  transition: background 0.18s;
+  line-height: 1.07em;
+  display: inline-block;
+}
+.profile-card-unavailable {
+  background: var(--danger) !important;
+}
+
+/* Responsive badge and card on mobile */
+@media (max-width: 900px) {
+  .profile-card {
+    padding-top: 2em;
+  }
+  .profile-card-available, .profile-card-unavailable {
+    top: 0.92em;
+    right: 0.92em;
+    font-size: 0.92em;
+    padding: 0.30em 1em;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .profile-card {
+    padding-top: 1.38em;
+  }
+  .profile-card-available, .profile-card-unavailable {
+    top: 0.56em;
+    right: 0.62em;
+    font-size: 0.78em;
+    padding: 0.21em 0.63em;
+    border-radius: 9px;
+    min-width: 40px;
+  }
+}
+@media (max-width: 390px) {
+  .profile-card-available, .profile-card-unavailable {
+    top: 0.28em;
+    right: 0.28em;
+    font-size: 0.67em;
+    padding: 0.13em 0.43em;
+    border-radius: 7px;
+    min-width: 30px;
+  }
+}
+
+/* Confirmation & general card styles */
+.card.confirmation-card,
+.confirmation-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 28px rgba(20,120,200,0.14);
+  max-width: 440px;
+  margin: 1.5em auto;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-body,
+.confirmation-card .card-body {
+  padding: 2em 1.5em 1.5em 1.5em;
+}
+.confirmation-header {
+  text-align: center;
+  padding-bottom: 1em;
+}
+.confirmation-icon {
+  font-size: 2.5em;
+  color: var(--success-green);
+  margin-bottom: 2px;
+  display: block;
+}
+.confirmation-title {
+  font-weight: bold;
+  font-size: 1.45em;
+  margin-bottom: 0.3em;
+}
+.confirmation-subtitle {
+  color: #666d91;
+  font-size: 1.05em;
+  margin-bottom: .5em;
+}
+.confirmation-section {
+  margin-bottom: 1.2em;
+}
+.helper-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55em;
+}
+.helper-photo-wrapper {
+  border-radius: 50%;
+  background: #e8eefe;
+  padding: 0.5em;
+  box-shadow: 0 2px 7px rgba(128,157,204,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.helper-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.helper-details { text-align: center; }
+.helper-name { font-weight: 600; font-size: 1.14em; }
+.helper-category { color: #475074; font-size: 1em; margin-bottom: 0.2em; }
+.helper-contact .contact-info { color: #6b7a8e; font-size: 0.97em; }
+.section-title {
+  font-size: 1.13em;
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin-bottom: 0.55em;
+}
+.booking-info-grid { display: flex; flex-direction: column; gap: 0.22em; }
+.booking-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-bottom: 0.12em;
+}
+.detail-label {
+  font-weight: 600;
+  color: #405580;
+  min-width: 108px;
+}
+.detail-value { color: #254570; }
+.detail-value.amount, .amount {
+  color: var(--success-green);
+  font-weight: bold;
+  font-size: 1.08em;
+}
+.confirmation-actions {
+  margin-top: 1.1em;
+  margin-bottom: 0.4em;
+}
+.action-btn {
+  width: 100%;
+  min-width: 180px;
+  max-width: 330px;
+  border-radius: 8px;
+  padding: 0.68em 0;
+  font-size: 1.12em;
+}
+/* Responsive for confirmation and cards */
+@media (max-width: 600px) {
+  .card.confirmation-card,
+  .confirmation-card {
+    max-width: 97vw;
+    border-radius: 14px;
+  }
+  .helper-photo {
+    width: 22vw;
+    height: 22vw;
+    min-width: 75px;
+    min-height: 75px;
+    max-width: 110px;
+    max-height: 110px;
+  }
+  .confirmation-icon { font-size: 2em; }
+  .card-body,
+  .confirmation-card .card-body {
+    padding: 1.1em 0.6em 1.1em 0.6em;
+  }
+  .confirmation-section { margin-bottom: 0.8em; }
+  .action-btn { font-size: 1em; }
+}
+
+/* General utilities */
+.text-center { text-align: center; }
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
+
+/* Animations and accessibility */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in   { animation: fadeIn 0.6s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media print {
+  .navbar, .footer, .nav-toggle { display: none !important; }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

@@ -1,0 +1,204 @@
+/* HERO SECTION */
+.hero-section {
+  background: linear-gradient(120deg, #e0eefc 0%, #bad1ee 100%);
+  border-radius: 0 0 2em 2em;
+  min-height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+  width: 100%;
+}
+.hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.3em 0;
+  gap: 2.5em;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 350px;
+  min-width: 0;
+}
+.hero-text h1 {
+  font-size: clamp(1.6rem, 4vw, 2.9rem);
+  font-weight: 800;
+  color: #214577;
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+}
+.hero-text p {
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  color: #215080;
+  margin-bottom: 1.4em;
+  max-width: 530px;
+  line-height: 1.38;
+}
+.hero-image {
+  flex: 0 0 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  width: 100%;
+}
+.hero-image img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 1.6em;
+  box-shadow: 0 3px 24px rgba(60,100,160,0.11);
+  border: 3px solid #e4e7ef;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 950px) {
+  .hero-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.3em;
+    padding: 1.5em 0;
+  }
+  .hero-text {
+    width: 100%;
+  }
+  .hero-section {
+    min-height: unset;
+    padding: 0.5em 0.3em;
+  }
+}
+@media (max-width: 700px) {
+  .hero-text h1 {
+    font-size: 1.25rem;
+  }
+  .hero-text p {
+    font-size: 0.97rem;
+  }
+  .hero-image img {
+    width: 92vw;
+    max-width: 99vw;
+    min-width: 0;
+    border-radius: 1em;
+    border-width: 2px;
+  }
+  .hero-image {
+    margin-bottom: 1.1em;
+  }
+  .hero-flex {
+    gap: 0.25em;
+    padding: 0.7em 0.15em;
+  }
+}
+
+/* SERVICES SECTION */
+.services-section {
+  padding: 2em 0 0 0;
+  text-align: center;
+  width: 100%;
+}
+.section-title {
+  font-size: clamp(1.15rem, 3vw, 2rem);
+  margin-bottom: 2em;
+  color: #174178;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  width: 100%;
+}
+.service-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px 0 rgba(23,65,120,0.09);
+  padding: 2em 1.2em 1.7em 1.2em;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+}
+.service-card:hover {
+  box-shadow: 0 6px 32px 0 rgba(46,96,185,0.13);
+  transform: translateY(-4px) scale(1.035);
+}
+.service-icon {
+  font-size: 2.1rem;
+  margin-bottom: 0.7em;
+}
+.service-card h3 {
+  font-size: 1.15rem;
+  color: #174178;
+  font-weight: 600;
+  margin-bottom: 0.42em;
+}
+.service-card p {
+  font-size: 0.99rem;
+  margin-bottom: 0.76em;
+  color: #527cb8;
+}
+.service-card .btn {
+  font-size: 0.97rem;
+  background: #3498DB;
+  color: #fff;
+  padding: 0.55em 1.3em;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1.5px 6px rgba(23,65,120,0.07);
+  width: 100%;
+  max-width: 170px;
+}
+.service-card .btn:hover {
+  background: #216FA6;
+}
+
+@media (max-width: 1050px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2em;
+    padding: 1.5em 0.5em;
+  }
+}
+@media (max-width: 700px) {
+  .section-title {
+    font-size: 1.12rem;
+    margin-bottom: 1em;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 1em 0.2em;
+  }
+  .service-card {
+    padding: 1.3em 0.7em;
+    min-width: 0;
+    border-radius: 10px;
+  }
+}
+@media (max-width: 410px) {
+  .hero-section,
+  .services-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .service-card {
+    padding: 1em 0.3em;
+  }
+}

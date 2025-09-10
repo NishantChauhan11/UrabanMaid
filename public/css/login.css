@@ -1,0 +1,199 @@
+html, body {
+    background: #f7fafd;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #205081;
+    width: 100%;
+}
+
+/* Center the card in viewport */
+.login-page-center, .login-center {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7fafd;
+}
+
+/* Card container */
+.login-container {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 6px 28px rgba(19,128,239,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 18px;
+    padding: 0; /* Use padding for child sections */
+}
+
+/* Header */
+.login-header {
+    background: #1380ef;
+    color: #fff;
+    border-radius: 23px 23px 0 0;
+    text-align: center;
+    padding: 2.3em 1.2em 1em 1.2em;
+}
+.login-header h3 {
+    margin: 0 0 9px 0;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -1px;
+}
+.login-header p {
+    margin: 0;
+    font-size: 1.09rem;
+    font-weight: 400;
+    color: #e1f3ff;
+    letter-spacing: 0;
+}
+
+/* Form content */
+.login-form {
+    padding: 2rem 1.2rem 1.25rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.09em;
+}
+
+/* Labels & Inputs */
+.input-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+    display: block;
+    color: #205081;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dbe9f4;
+    border-radius: 8px;
+    background: #f7fbff;
+    padding: 0.4em 1em;
+    gap: 10px;
+}
+.input-group i {
+    color: #1380ef;
+    font-size: 1.15em;
+}
+.login-input, .login-form .form-control {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.59em 0;
+    font-size: 1.09rem;
+    color: #232a43;
+    outline: none;
+}
+.login-input:focus, .login-form .form-control:focus {
+    background: #e7f2ff;
+}
+
+/* Buttons */
+.login-btn, .register-btn, .btn-block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 8px;
+    font-size: 1.12rem;
+    font-weight: 700;
+    padding: 1em 0;
+    margin-top: 1.1em;
+    box-shadow: 0 2px 8px rgba(19,128,239,0.08);
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background 0.14s, color 0.14s, border 0.16s;
+}
+
+/* Login Button */
+.login-btn, .btn-primary {
+    background: #1380ef;
+    color: #fff;
+    margin-bottom: 0.6em;
+    border: none;
+}
+.login-btn:hover, .login-btn:focus, .btn-primary:hover, .btn-primary:focus {
+    background: #205081;
+    color: #fff;
+}
+
+/* Register Button (outlined) */
+.register-btn, .btn-outline-secondary {
+    background: #fff;
+    color: #1380ef;
+    border: 2px solid #1380ef;
+    font-weight: 600;
+    margin-top: 0;
+}
+.register-btn:hover, .register-btn:focus, .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+    background: #1380ef;
+    color: #fff;
+}
+
+/* Responsive: Large mobile/tablet */
+@media (max-width: 700px) {
+    .login-container {
+        max-width: 97vw;
+        border-radius: 15px;
+        margin: 4vw auto;
+    }
+    .login-header,
+    .login-form {
+        padding-left: 7vw;
+        padding-right: 7vw;
+    }
+    .login-header {
+        padding-top: 1.6em;
+        border-radius: 12px 12px 0 0;
+    }
+    .login-header h3 {
+        font-size: 1.23rem;
+    }
+    .login-form {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        gap: 0.98em;
+    }
+    .btn-block {
+        padding: 0.8em 0;
+        font-size: 1em;
+    }
+}
+
+/* Responsive: Small mobile devices */
+@media (max-width: 430px) {
+    .login-container {
+        margin: 2vw auto;
+        padding: 0 1vw;
+        border-radius: 8px;
+    }
+    .login-header, .login-form {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+    .login-header h3 {
+        font-size: 1.01rem;
+    }
+    .login-form {
+        gap: 0.7em;
+    }
+}
+
+/* Remove input number spinner */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

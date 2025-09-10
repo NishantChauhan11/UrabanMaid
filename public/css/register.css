@@ -1,0 +1,244 @@
+html, body {
+    background: linear-gradient(120deg, #e0eefc 0%, #bad1ee 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #205081;
+    width: 100%;
+}
+
+/* Center the registration card */
+.register-outer-center {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Back to home button */
+.back-home-btn {
+    color: #1380ef;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+.back-home-btn:hover {
+    color: #205081;
+    text-decoration: underline;
+}
+
+/* Main registration card */
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(19,128,239,0.15);
+    overflow: hidden;
+}
+
+/* Header section */
+.register-header {
+    background: linear-gradient(135deg, #1380ef 0%, #0d5ba8 100%);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.register-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+.register-header p {
+    margin: 0;
+    font-size: 1rem;
+    color: #e1f3ff;
+    opacity: 0.9;
+}
+
+/* Form section */
+.register-form {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Form inputs */
+.register-form input,
+.register-form select,
+.register-form textarea,
+.register-form .form-control,
+.register-form .form-select {
+    width: 100%;
+    border: 2px solid #e8f2ff;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: #2c3e50;
+    background: #f8fcff;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+.register-form input:focus,
+.register-form select:focus,
+.register-form textarea:focus,
+.register-form .form-control:focus,
+.register-form .form-select:focus {
+    border-color: #1380ef;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(19,128,239,0.1);
+    outline: none;
+}
+
+/* Textarea specific */
+.register-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* Submit button */
+.register-btn,
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, #1380ef 0%, #0d5ba8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(19,128,239,0.2);
+}
+.register-btn:hover,
+.register-btn:focus,
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(135deg, #0d5ba8 0%, #094a8f 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(19,128,239,0.3);
+    color: #fff;
+}
+
+/* Footer section */
+.register-footer {
+    text-align: center;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+.register-footer a {
+    color: #1380ef;
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-footer a:hover {
+    text-decoration: underline;
+    color: #0d5ba8;
+}
+
+/* Responsive: Tablet and large mobile */
+@media (max-width: 768px) {
+    .register-outer-center {
+        padding: 1rem 0.5rem;
+        min-height: 100vh;
+    }
+    .register-card {
+        max-width: 98vw;
+        border-radius: 16px;
+        margin: 0;
+    }
+    .register-header {
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+    .register-form {
+        padding: 1.5rem 1rem 1rem 1rem;
+        gap: 1rem;
+    }
+    .register-footer {
+        padding: 0.8rem 1rem 1.5rem 1rem;
+    }
+    .back-home-btn {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive: Small mobile devices */
+@media (max-width: 480px) {
+    .register-outer-center {
+        padding: 0.5rem 0.25rem;
+    }
+    .register-card {
+        border-radius: 12px;
+    }
+    .register-header,
+    .register-form,
+    .register-footer {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    .register-form {
+        gap: 0.8rem;
+    }
+    .register-form input,
+    .register-form select,
+    .register-form textarea {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.95rem;
+    }
+    .register-btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .register-header h1 {
+        font-size: 1.2rem;
+    }
+    .register-header p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Remove input number spinner */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    appearance: textfield;
+}
+
+/* Focus states for accessibility */
+.register-form input:focus,
+.register-form select:focus,
+.register-form textarea:focus,
+.register-btn:focus {
+    outline: 2px solid #1380ef;
+    outline-offset: 2px;
+}
+
+/* Loading state for submit button */
+.register-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
