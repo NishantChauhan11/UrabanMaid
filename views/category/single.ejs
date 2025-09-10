@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('../partials/navbar', { user: user }) %>
+
+  <main class="py-5" style="min-height: 100vh; background: linear-gradient(120deg,#e0eefc 0%,#bad1ee 100%) no-repeat fixed;">
+    <div class="container d-flex justify-content-center align-items-center h-100">
+      <div class="profile-card shadow border-0 w-100" style="max-width:420px; border-radius:20px; position:relative; padding-top:3.6em;">
+        <!-- Badge: NOT in image wrapper -->
+        <span class="profile-card-available <%= helper.availability === 'available' ? '' : 'profile-card-unavailable' %>">
+          <%= helper.availability === 'available' ? 'Available' : 'Busy' %>
+        </span>
+        <div class="card-body d-flex flex-column align-items-center p-4">
+          <header class="mb-3 w-100 text-center">
+            <h2 class="fw-bold fs-4 mb-1" style="color: var(--primary-blue);">
+              <%= category.icon %> <%= category.name %>
+            </h2>
+          </header>
+          <div class="mb-2">
+            <img src="<%= helper.imageURL || '/images/default-user.png' %>" alt="Profile photo of <%= helper.name %>" class="rounded-circle shadow profile-card-photo">
+          </div>
+          <h2 class="fw-bold text-primary mb-2 fs-5"><%= helper.name %></h2>
+          <div class="mb-1 text-warning small" aria-label="Rating">
+            <% var rating = helper.rating || 0; %>
+            <% for(let i = 1; i <= 5; i++) { %>
+              <% if (i <= rating) { %>
+                <span>&#9733;</span>
+              <% } else { %>
+                <span style="color:#ddd">&#9733;</span>
+              <% } %>
+            <% } %>
+            <span class="text-muted small">(<%= rating.toFixed(1) %>)</span>
+          </div>
+          <div class="text-muted mb-2 small">
+            <i class="bi bi-geo-alt"></i> <%= helper.location.area %>, <%= helper.location.city %>
+          </div>
+          <div class="mb-3 small text-secondary">
+            <%= helper.experience %> years Experience | ₹<%= helper.hourlyRate %>/hr
+          </div>
+          <% if (helper.skills && helper.skills.length > 0) { %>
+            <div class="mb-2 w-100">
+              <% helper.skills.forEach(skill => { %>
+                <span class="badge bg-light text-dark border me-1 mb-1"><%= skill %></span>
+              <% }); %>
+            </div>
+          <% } %>
+          <% if (helper.description) { %>
+            <div class="mb-3 w-100 text-secondary">
+              <%= helper.description.length > 120 ? helper.description.substring(0, 120) + '...' : helper.description %>
+            </div>
+          <% } %>
+          <div class="mt-auto w-100 text-center">
+            <% if (user) { %>
+              <% if (helper.availability === 'available') { %>
+                <a href="/booking/create/<%= helper._id %>" class="btn btn-primary w-100 fw-bold">
+                  Book Now
+                </a>
+              <% } else { %>
+                <button class="btn btn-secondary w-100 fw-bold" style="background:#ccc;cursor:not-allowed;" disabled>Currently Busy</button>
+              <% } %>
+            <% } else { %>
+              <a href="/auth/login" class="btn btn-outline-primary w-100 fw-bold">
+                Login to Book
+              </a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

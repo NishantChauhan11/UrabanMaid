@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Bootstrap 5 only (FontAwesome removed) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body style="background: #f5fafb;">
+    <%- include('../partials/navbar', { user: user }) %>
+
+    <!-- Flash Messages -->
+    <div class="container py-4">
+        <% if (success_msg && success_msg.length > 0) { %>
+            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <%= success_msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+        <% if (error_msg && error_msg.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                <%= error_msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+            <h2 class="mb-0" style="color:#1380ef;display:flex;align-items:center;gap:8px;">
+                📅 My Bookings
+            </h2>
+            <a href="/category" class="btn btn-outline-primary">
+                🔍 Browse Services
+            </a>
+        </div>
+
+        <% if (bookings && bookings.length > 0) { %>
+            <div class="row g-4">
+                <% bookings.forEach(function(booking) { %>
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100 shadow booking-card border-0">
+                            <div class="card-header d-flex justify-content-between align-items-center" style="background:#1380ef;color:#fff; border-radius:13px 13px 0 0;">
+                                <h6 class="mb-0 fw-bold">
+                                    🧾 Booking #<%= booking._id.toString().substr(-6).toUpperCase() %>
+                                </h6>
+                                <% if (booking.status === 'confirmed') { %>
+                                    <span class="badge" style="background:#24d46c;">Confirmed</span>
+                                <% } else if (booking.status === 'pending') { %>
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                <% } else if (booking.status === 'completed') { %>
+                                    <span class="badge bg-info text-dark">Completed</span>
+                                <% } else { %>
+                                    <span class="badge bg-secondary text-light"><%= booking.status %></span>
+                                <% } %>
+                            </div>
+                            <div class="card-body">
+                                <% if (booking.helperID) { %>
+                                    <div class="d-flex align-items-center gap-3 mb-3">
+                                        <img src="<%= booking.helperID.imageURL %>" alt="<%= booking.helperID.name %>"
+                                             class="rounded-circle" style="width:50px;height:50px;object-fit:cover;">
+                                        <div>
+                                            <div class="fw-semibold"><%= booking.helperID.name %></div>
+                                            <small class="text-muted"><%= booking.helperID.category %></small>
+                                        </div>
+                                    </div>
+                                <% } %>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="text-center">
+                                        <div class="text-primary fw-bold"><%= new Date(booking.bookingDate).toLocaleDateString() %></div>
+                                        <div class="text-muted small">Date</div>
+                                    </div>
+                                    <div class="border-start border-end px-4 text-center">
+                                        <div style="color:#1bb8e5;font-weight:600;">
+                                            <%= booking.startTime %>
+                                        </div>
+                                        <div class="text-muted small">Time</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-success fw-bold">₹<%= booking.totalAmount %></div>
+                                        <div class="text-muted small">Total</div>
+                                    </div>
+                                </div>
+                                <p class="mb-2"><strong>Duration:</strong> <%= booking.duration %> hour<%= booking.duration > 1 ? 's' : '' %></p>
+                                <% if (booking.specialInstructions && booking.specialInstructions.trim()) { %>
+                                    <div class="bg-light rounded p-2 mb-2">
+                                        <small><strong>Instructions:</strong> <%= booking.specialInstructions %></small>
+                                    </div>
+                                <% } %>
+                                <small class="text-muted">
+                                    ⏰ Booked on <%= booking.createdAt.toLocaleDateString() %>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <!-- No Bookings -->
+            <div class="text-center py-5">
+                <div class="mb-4" style="font-size:4em;color:#ddd;">📅</div>
+                <h4>No bookings yet</h4>
+                <p class="text-muted mb-4">You haven't made any bookings yet. Explore our services and book a helper!</p>
+                <a href="/category" class="btn btn-primary btn-lg">
+                    🔍 Browse Services
+                </a>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

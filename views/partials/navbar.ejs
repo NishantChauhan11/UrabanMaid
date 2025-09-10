@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanMaid - Home Services Platform</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- NAVBAR PARTIAL -->
+<% /* views/partials/navbar.ejs */ %>
+<% /* views/partials/navbar.ejs - UrbanMaid Responsive Navbar */ %>
+<% /* UrbanMaid Responsive Navbar - Fully Working with Bootstrap 5 */ %>
+<% /* views/partials/navbar.ejs - Fully updated for UrbanMaid */ %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanMaid - Home Services Platform</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- NAVBAR PARTIAL -->
+<% /* views/partials/navbar.ejs */ %>
+<% /* views/partials/navbar.ejs - UrbanMaid Responsive Navbar */ %>
+<% /* UrbanMaid Responsive Navbar - Fully Working with Bootstrap 5 */ %>
+<% /* views/partials/navbar.ejs - Fully updated for UrbanMaid */ %>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top" style="background: linear-gradient(120deg, #e0eefc 0%, #bad1ee 100%); z-index: 999;">
+  <div class="container-fluid">
+    <!-- Brand (Logo + UrbanMaid) -->
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/" style="color: #1186f7;">
+      🏠
+      <span class="fs-3">UrbanMaid</span>
+    </a>
+    <!-- Hamburger toggler (mobile) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Main nav items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3">
+
+        <!-- Home button -->
+        <li class="nav-item">
+          <a href="/" class="nav-link d-flex align-items-center fw-semibold">
+            🏠 Home
+          </a>
+        </li>
+
+        <!-- Categories dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold"
+             href="#" id="navbarCategoriesDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            📋 Categories
+          </a>
+          <ul class="dropdown-menu shadow" aria-labelledby="navbarCategoriesDropdown">
+            <li><a class="dropdown-item" href="/category/maid">🧹 Maids</a></li>
+            <li><a class="dropdown-item" href="/category/cook">🍽️ Cooks</a></li>
+            <li><a class="dropdown-item" href="/category/babysitter">🧒 Babysitters</a></li>
+            <li><a class="dropdown-item" href="/category/cleaner">🧽 Cleaners</a></li>
+            <li><a class="dropdown-item" href="/category/plumber">🔧 Plumbers</a></li>
+            <li><a class="dropdown-item" href="/category/electrician">⚡ Electricians</a></li>
+            <li><a class="dropdown-item" href="/category/gardener">🌱 Gardeners</a></li>
+            <li><a class="dropdown-item" href="/category/driver">🚗 Drivers</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item fw-bold" href="/category">📋 View All Categories</a></li>
+          </ul>
+        </li>
+
+        <!-- My Booking (only when logged in) -->
+        <% if (user) { %>
+        <li class="nav-item">
+          <a href="/booking/my-bookings" class="nav-link d-flex align-items-center fw-semibold">
+            📖 My Booking
+          </a>
+        </li>
+        <% } %>
+
+        <!-- Join as Helper -->
+        <li class="nav-item">
+          <a href="/helper/joinashelper" class="nav-link d-flex align-items-center fw-semibold" style="color: #6657e8;">
+            🤝 Join as Helper
+          </a>
+        </li>
+
+        <!-- Login/Logout -->
+        <% if (!user) { %>
+        <li class="nav-item">
+          <a href="/auth/login" class="nav-link d-flex align-items-center fw-semibold" style="color:#1c65fa;">
+            🔐 Login
+          </a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <form action="/auth/logout" method="POST" class="d-inline">
+            <button class="nav-link btn btn-link d-flex align-items-center fw-semibold" type="submit" style="color:#c0392b;">
+              🚪 Logout
+            </button>
+          </form>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

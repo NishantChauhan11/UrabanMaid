@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Categories - UrbanMaid</title>
+  <!-- Bootstrap only, FontAwesome removed -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/category.css">
+</head>
+<body style="background: linear-gradient(120deg,#e0eefc 0%,#bad1ee 100%) no-repeat fixed;">
+
+  <!-- Navbar -->
+  <%- include('../partials/navbar', { user: user }) %>
+
+  <div class="container py-5">
+    <h1 class="fw-bold text-center mb-4" style="color: var(--primary-blue); font-size: clamp(2rem, 6vw, 2.7rem);">
+      All Service Categories
+    </h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <% if (typeof categories !== 'undefined' && Array.isArray(categories) && categories.length > 0) { %>
+        <% categories.forEach(function(cat) { %>
+          <div class="col d-flex">
+            <a href="/category/<%= cat.slug %>" class="card h-100 border-0 shadow-sm category-card w-100 text-center p-4 text-decoration-none d-flex flex-column justify-content-between">
+              <div>
+                <div class="fs-1 mb-2" aria-label="icon">
+                  <% if (cat.slug === 'maid') { %>
+                    🧹
+                  <% } else if (cat.slug === 'cook') { %>
+                    🍽️
+                  <% } else if (cat.slug === 'babysitter') { %>
+                    🧒
+                  <% } else if (cat.slug === 'cleaner') { %>
+                    🧽
+                  <% } else if (cat.slug === 'plumber') { %>
+                    🔧
+                  <% } else if (cat.slug === 'electrician') { %>
+                    ⚡
+                  <% } else if (cat.slug === 'gardener') { %>
+                    🌱
+                  <% } else if (cat.slug === 'driver') { %>
+                    🚗
+                  <% } else { %>
+                    🛎️
+                  <% } %>
+                </div>
+                <h5 class="fw-bold mb-2" style="color: var(--primary-blue);"><%= cat.name %></h5>
+                <p class="text-muted text-truncate" style="min-height: 28px;"><%= cat.description || '' %></p>
+              </div>
+              <span class="btn btn-outline-primary btn-sm mt-2">View</span>
+            </a>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12">
+          <div class="alert alert-info text-center">
+            No categories available at the moment.
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <%- include('../partials/footer') %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
