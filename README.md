@@ -46,6 +46,4 @@ It is built using **Node.js, Express.js, MongoDB, and EJS**, with **ImageKit int
 - method-override → Support PUT & DELETE methods  
 - moment.js → Date/time formatting  
 
----
-
-folder structure
+----
