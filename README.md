@@ -47,3 +47,5 @@ It is built using **Node.js, Express.js, MongoDB, and EJS**, with **ImageKit int
 - moment.js → Date/time formatting  
 
 ---
+
+folder structure
